@@ -1,0 +1,208 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: white;
+  background-color: #373f4c;
+}
+
+.Dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Timer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 3em;
+}
+
+.planeIcon {
+  text-align: center;
+}
+
+.planeIcon img {
+  width: 100%;
+}
+
+.airborne {
+  background-color: #b7ffbe;
+}
+
+.grounded {
+  background-color: #ffd1b7;
+}
+
+.planeStatus {
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  color: black;
+  font-size: 2em;
+  z-index: 9999;
+}
+
+.flagIcon {
+  max-width: 1em;
+  max-height: 1em;
+  margin-left: 10px;
+}
+
+.ScoreBoard {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 2em;
+}
+
+.advantage {
+  color: green;
+}
+
+.cutButton {
+  padding: 20px 0px;
+  width: 100%;
+  font-size: 4em;
+  background-color: #02cc20;
+  border: none;
+  margin-bottom: 10px
+}
+
+.cutButton:active {
+  background-color: #008714;
+}
+
+.undoButton {
+  padding: 20px 0px;
+  width: 100%;
+  font-size: 4em;
+  background-color: #ff8011;
+  border: none;
+  margin-bottom: 10px
+}
+
+.undoButton:active {
+  background-color: #a55209;
+}
+
+.landingApproved {
+  animation: blinkingText 1.0s infinite;
+}
+
+@keyframes blinkingText {
+  0% {
+    background-color: #2ef42e;
+  }
+  49% {
+    background-color: #bbf42e;
+  }
+  50% {
+    background-color: #f4dc2e;
+  }
+  99% {
+    background-color: #f42e2e;
+  }
+  100% {
+    background-color: #a8f42e;
+  }
+}
+
+.playerBoard {
+  margin: 0px 10px;
+}
+
+.blue {
+  border: 2px solid #16b5f9;
+}
+
+.red {
+  border: 2px solid #f42e2e;
+}
+
+.startButton {
+  position: absolute;
+  border: none;
+  padding: 20px;
+  left: 10px;
+  background-color: white;
+}
+
+.startButton:active {}
+
+.resetButton {
+  position: absolute;
+  border: none;
+  padding: 20px;
+  right: 10px;
+  background-color: orange;
+}
+
+.resetButton:active {}
+
+.cutLabel {
+  padding: 10px;
+  font-size: 2em;
+}
+
+.cutCounter {
+  padding-left: 10x;
+}
+
+.landingCountdown {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.penaltyTab {
+  background-color: #3a4866;
+  border-top: 2px solid white;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+.penaltyTab:active{
+  background-color: #5e75a5;
+}
+.penaltyTabExpanded{
+
+}
+.penaltyDashboard{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #7c99d6;
+  padding-top:10px;
+  transition: height 500ms 0ms;
+  height:220px;
+}
+.penaltyDashboard.hide{
+  transition: height 500ms 10ms;
+  height: 0px;
+  padding:0;
+}
+.penaltyLabel {
+  font-size: 2em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  /*color: #ff2323;*/
+  color:white;
+}
+.playerPenalty{
+
+}
+.penaltyButton{
+  padding: 5px 0px;
+  width: 100%;
+  font-size: 3em;
+  background-color: #ff1111;
+  border: none;
+  margin-bottom: 10px;
+  color:white;
+}
