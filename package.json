@@ -1,6 +1,7 @@
 {
   "name": "f2d_timer",
   "author": "Maksim Svetlakov",
+  "homepage" : "http://maksvet.github.io/myapp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
