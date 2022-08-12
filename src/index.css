@@ -79,7 +79,7 @@ body {
   padding: 20px 0px;
   width: 100%;
   font-size: 4em;
-  background-color: #ff8011;
+  background-color: #635C5C;
   border: none;
   margin-bottom: 10px
 }
@@ -115,11 +115,11 @@ body {
 }
 
 .blue {
-  border: 2px solid #16b5f9;
+  border: 22px solid #3967DE;
 }
 
 .red {
-  border: 2px solid #f42e2e;
+  border: 22px solid #FB7D0A;
 }
 
 .startButton {
@@ -158,51 +158,3 @@ body {
   padding-bottom: 10px;
 }
 
-.penaltyTab {
-  background-color: #3a4866;
-  border-top: 2px solid white;
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
-.penaltyTab:active{
-  background-color: #5e75a5;
-}
-.penaltyTabExpanded{
-
-}
-.penaltyDashboard{
-  display:flex;
-  flex-direction: row;
-  justify-content: space-around;
-  background-color: #7c99d6;
-  padding-top:10px;
-  transition: height 500ms 0ms;
-  height:220px;
-}
-.penaltyDashboard.hide{
-  transition: height 500ms 10ms;
-  height: 0px;
-  padding:0;
-}
-.penaltyLabel {
-  font-size: 2em;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-weight: bold;
-  /*color: #ff2323;*/
-  color:white;
-}
-.playerPenalty{
-
-}
-.penaltyButton{
-  padding: 5px 0px;
-  width: 100%;
-  font-size: 3em;
-  background-color: #ff1111;
-  border: none;
-  margin-bottom: 10px;
-  color:white;
-}

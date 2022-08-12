@@ -1,8 +1,7 @@
 import Timer from "./Timer";
 import Player from "./playerComponents/Player";
-import PenaltyTab from "./playerComponents/PenaltyTab";
 import React from "react";
-import startIcon from "../assets/startIcon.png";
+
 
 class Manager extends React.Component {
     constructor(props) {
@@ -10,7 +9,7 @@ class Manager extends React.Component {
         this.state = {
             Time: 0.00,
             TimerRuns: false,
-            RoundLength: 240.00,
+            RoundLength: 480,
             TacticalLandingCountDown: 0,
             Player1: {
                 Name: "Player1",
@@ -37,8 +36,8 @@ class Manager extends React.Component {
             <div>
                 <button className="startButton" onClick={() => this.startBattle()}>{this.state.TimerRuns ? "Stop" : "Start"}</button>
                 <button className="resetButton" onClick={() => this.resetBattle()}>Reset</button>
-                <Timer time={this.state.Time} />
-                <div className="landingCountdown"> Landing Countdown: {this.state.TacticalLandingCountDown}s</div>
+                <Timer time={Math.floor(this.state.Time)} />
+                <div className="landingCountdown"> Landing Countdown: {Math.floor(this.state.TacticalLandingCountDown/2)}s</div>
                 <div className="Dashboard">
                     <Player {...this.state.Player1}
                         ExecuteCut={() => this.addCut(this.state.Player1)}
@@ -50,7 +49,6 @@ class Manager extends React.Component {
                         flipStatus={() => this.flipPlaneStatus(this.state.Player2)}
                         UndoCut={() => this.deductCut(this.state.Player2)} />
                 </div>
-                <PenaltyTab player1={this.state.Player1} player2={this.state.Player2} deductPoints = {()=>this.deductPoints(this.state.Player1, 20)}/>
             </div>
         );
     }
@@ -82,12 +80,12 @@ class Manager extends React.Component {
         }
     }
     addCut(player) {
-        this.addPoints(player, 50);
+        this.addPoints(player, 100);
         player.Cuts += 1;
         this.setState({ [player.Name]: player });
     }
     deductCut(player) {
-        this.deductPoints(player, 50);
+        this.deductPoints(player, 100);
         player.Cuts -= 1;
         this.setState({ [player.Name]: player });
     }
@@ -103,10 +101,10 @@ class Manager extends React.Component {
     }
     addFlyingPoints() {
         if (this.state.Player1.isAirborne) {
-            this.addPoints(this.state.Player1, 1);
+            this.addPoints(this.state.Player1, 2);
         }
         if (this.state.Player2.isAirborne) {
-            this.addPoints(this.state.Player2, 1);
+            this.addPoints(this.state.Player2, 2);
         }
         this.checkAdvantage();
     }
@@ -120,7 +118,7 @@ class Manager extends React.Component {
             {
                 Time: 0.00,
                 TimerRuns: false,
-                RoundLength: 240.00,
+                RoundLength: 480,
                 TacticalLandingApproved: false,
                 TacticalLandingCountDown: 0,
                 Player1: {
@@ -152,8 +150,8 @@ class Manager extends React.Component {
         this.setState({ [player.Name]: updPlayer });
     }
     checkTacticalLanding(score1, score2) {
-        if (score1 - score2 >= 6) {
-            const res = score1 - score2 - 6 + Math.floor(this.state.Time);
+        if (score1 - score2 >= 12) {
+            const res = score1 - score2 - 12 + Math.floor(this.state.Time);
             if (res >= this.state.RoundLength) {
                 this.state.TacticalLandingCountDown = 0;
                 return true;
@@ -174,10 +172,8 @@ class Manager extends React.Component {
         if (player1.Score > player2.Score) {
             player1.HasAdvantage = true;
             player2.HasAdvantage = false;
-            if (player1.Score - player2.Score >= 6) {
-                console.log("Check for landing player 1");
+            if (player1.Score - player2.Score >= 12) {
                 if (this.checkTacticalLanding(player1.Score, player2.Score)) {
-                    console.log("Landing Approved");
                     player1.TacticalLandingApproved = true;
                 }
                 else {
@@ -196,7 +192,7 @@ class Manager extends React.Component {
                 [player1.Name]: player1,
                 [player2.Name]: player2
             })
-            if (player1.Score - player2.Score <= 6) {
+            if (player1.Score - player2.Score <= 12) {
                 if (this.checkTacticalLanding(player2.Score, player1.Score)) {
                     player2.TacticalLandingApproved = true;
                 }
