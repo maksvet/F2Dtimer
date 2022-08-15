@@ -151,7 +151,7 @@ class Manager extends React.Component {
     }
     checkTacticalLanding(score1, score2) {
         if (score1 - score2 >= 12) {
-            const res = score1 - score2 - 12 + Math.floor(this.state.Time);
+            const res = score1 - score2 - 12 + Math.floor(this.state.Time)*2;
             if (res >= this.state.RoundLength) {
                 this.state.TacticalLandingCountDown = 0;
                 return true;
